@@ -12,6 +12,7 @@
 </head>
 <body>
   <div id="bg-clock"></div>
+
   <div id="app-wrapper">
     <div id="app">
       <header>
@@ -23,11 +24,13 @@
         <div id="form-error">Você precisa preencher todos os campos</div>
         <div class="inline-field">
           <label class="inline-field-label">CRM</label>
-          <input type="text" class="inline-field-input" value="asdasd">
+          <input type="text" id="inp-crm" class="inline-field-input" placeholder="000.000-0">
         </div>
         <div class="inline-field">
-          <label class="inline-field-label">UF</label>
-          <input type="text" class="inline-field-input" readonly>
+          <label class="inline-field-label ufpicker">UF</label>
+          <span class="dropdown-arrow ufpicker"></span>
+          <input type="text" id="inp-uf-placeholder" class="inline-field-input ufpicker" readonly placeholder="Selecione">
+          <input type="hidden" id="inp-uf">
         </div>
         <div id="form-footer">
           <div class="btn btn-primary">CONTINUE</div>
@@ -65,7 +68,40 @@
     </div>
   </div>
 
+  <!-- <div id="modal-uf">
+    <ul id="modal-uf-ul">
+      <li data-uf="AC">Acre</li>
+      <li data-uf="AL">Alagoas</li>
+      <li data-uf="AP">Amapá</li>
+      <li data-uf="AM">Amazonas</li>
+      <li data-uf="BA">Bahia</li>
+      <li data-uf="CE">Ceará</li>
+      <li data-uf="DF">Distrito Federal</li>
+      <li data-uf="ES">Espírito Santo</li>
+      <li data-uf="GO">Goiás</li>
+      <li data-uf="MA">Maranhão</li>
+      <li data-uf="MT">Mato Grosso</li>
+      <li data-uf="MS">Mato Grosso do Sul</li>
+      <li data-uf="MG">Minas Gerais</li>
+      <li data-uf="PA">Pará</li>
+      <li data-uf="PB">Paraíba</li>
+      <li data-uf="PR">Paraná</li>
+      <li data-uf="PE">Pernambuco</li>
+      <li data-uf="PI">Piauí</li>
+      <li data-uf="RJ">Rio de Janeiro</li>
+      <li data-uf="RN">Rio Grande do Norte</li>
+      <li data-uf="RS">Rio Grande do Sul</li>
+      <li data-uf="RO">Rondônia</li>
+      <li data-uf="RR">Roraima</li>
+      <li data-uf="SC">Santa Catarina</li>
+      <li data-uf="SP">São Paulo</li>
+      <li data-uf="SE">Sergipe</li>
+      <li data-uf="TO">Tocantins</li>
+    </ul>
+  </div> -->
+
   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js" integrity="sha256-Cq7XEyDcEipCpZODrMe4Bxukqlx8R9ZndzIYs4wytEM=" crossorigin="anonymous"></script>
   <script src="static/js/app.js"></script>
 </body>
 </html>

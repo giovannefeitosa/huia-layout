@@ -4,7 +4,6 @@ html, body {
 
 /* http://sergiolopes.org/css-box-sizing-border-box */
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -56,10 +55,9 @@ table {
 
 body {
   font-family: 'HelveticaNeue Medium', 'HelveticaNeue', sans-serif;
-  background: -webkit-gradient(linear, left top, left bottom, from(#e2dbee), color-stop(25%, #f0eafd));
-  background: -webkit-linear-gradient(#e2dbee 0%, #f0eafd 25%);
-  background: -o-linear-gradient(#e2dbee 0%, #f0eafd 25%);
-  background: linear-gradient(#e2dbee 0%, #f0eafd 25%); }
+  background: linear-gradient(#e2dbee 0%, #f0eafd 25%, #f0eafd 75%, #dcc3de 100%); }
+  body.prevent-scroll {
+    overflow: hidden; }
 
 #bg-clock {
   position: absolute;
@@ -106,8 +104,6 @@ body {
   color: #911;
   font-size: 14px;
   text-align: center;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
   transition: opacity .5s ease-out;
   background: #fdd;
   padding: 5px;
@@ -137,6 +133,12 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #111; }
+  .inline-field .dropdown-arrow {
+    position: absolute;
+    right: 0;
+    bottom: 7px;
+    border: 7px solid transparent;
+    border-top: 7px solid #7e479b; }
 
 #form-footer {
   padding-top: 1.5rem;
@@ -148,7 +150,6 @@ body {
     color: #7e479b; }
 
 .btn {
-  -webkit-box-shadow: 0 2px 8px #ae82c6;
   box-shadow: 0 2px 8px #ae82c6;
   line-height: 2rem;
   font-size: 14px;
@@ -193,3 +194,28 @@ body {
       background-image: url("../img/icons/comfort.png"); }
   .footer-icon .label {
     font-size: 11px; }
+
+.uf-modal {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  overflow-y: auto;
+  border: 1px solid #ae82c6;
+  border-radius: 5px 0 0 5px;
+  background: url("../img/bg-purple.png") right top no-repeat #ffffff; }
+  .uf-modal ul.uf-list {
+    list-style: none; }
+    .uf-modal ul.uf-list li {
+      display: block;
+      font-size: 14px;
+      line-height: 2.5em;
+      padding: 0 1rem;
+      color: #333333;
+      cursor: pointer; }
+      .uf-modal ul.uf-list li:hover, .uf-modal ul.uf-list li:focus {
+        background: #dcc3de; }
+      .uf-modal ul.uf-list li.active {
+        background: #d2b3d5; }
