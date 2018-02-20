@@ -1,0 +1,19 @@
+{
+  "name": "huia-layout",
+  "version": "0.1.0",
+  "description": "My first code for Huia Tech Studio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/shakegioh/huia-layout.git"
+  },
+  "author": "giovanneafonso@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/shakegioh/huia-layout/issues"
+  },
+  "homepage": "https://gitlab.com/shakegioh/huia-layout#README"
+}
