@@ -60,6 +60,7 @@ UFPicker.prototype.toHtml = function() {
 };
 
 UFPicker.prototype.open = function() {
+
   this.elemBody.addClass('prevent-scroll');
 
   this.elemModal.css({
@@ -70,9 +71,11 @@ UFPicker.prototype.open = function() {
     marginTop: '0',
     opacity: 1,
   }, 'fast');
+
 };
 
 UFPicker.prototype.close = function() {
+  
   this.elemBody.removeClass('prevent-scroll');
 
   this.elemModal.animate({
@@ -81,6 +84,7 @@ UFPicker.prototype.close = function() {
   }, 'fast', 'swing', () => {
     this.elemModal.hide();
   });
+
 };
 
 UFPicker.prototype.bindValue = function(inpValue, inpPlaceholder) {
@@ -104,11 +108,61 @@ UFPicker.prototype.bindValue = function(inpValue, inpPlaceholder) {
 };
 
 
+
+
+
+function ErrorManager(selector) {
+  this.element = $(selector);
+}
+
+ErrorManager.prototype.show = function(message) {
+  this.element.html(message).stop().animate({ opacity: 1 }, 70);
+
+  setTimeout(() => this.hide(), 3000);
+};
+
+ErrorManager.prototype.hide = function() {
+  this.element.stop().animate({ opacity: 0 }, 70);
+};
+
+
+
+
 $(document).ready(function() {
 
-  $('#inp-crm').mask('000.000-0');
+  let elemCRM = $('#inp-crm');
+  let elemUF  = $('#inp-uf');
+
+  elemCRM.mask('000.000-0');
 
   let ufPicker = new UFPicker('.ufpicker');
-  ufPicker.bindValue('#inp-uf', '#inp-uf-placeholder');
+  ufPicker.bindValue(elemUF, '#inp-uf-placeholder');
+
+  let err = new ErrorManager('#form-error');
+
+  $('#btn-submit').click(function() {
+    
+    if(!elemCRM.val()) {
+      err.show('Preencha o campo CRM');
+      elemCRM.focus();
+      return;
+    }
+
+    if(elemCRM.val().length !== 9) {
+      err.show('O CRM preenchido é inválido');
+      elemCRM.focus();
+      return;
+    }
+
+    if(!elemUF.val()) {
+      err.show('Preencha o campo UF');
+
+      // Should open the modal!?
+      setTimeout(() => ufPicker.open(), 500);
+      
+      return;
+    }
+
+  });
 
 });

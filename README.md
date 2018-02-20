@@ -13,7 +13,7 @@ Este projeto foi criado com o único propósito de ser o meu teste de seleção 
 ### Pré-requisitos
 - O campo CRM deve usar uma máscara: 000.000-0
 - Os dois campos do formulário são obrigatórios
-- Depois de sucesso, deve ser exibido uma mensagem de "Você está sendo redirecionado..." e redirecionar o usuário para o site da Huia.
+- Depois de sucesso, deve ser exibido uma mensagem de "Você está sendo redirecionado..." e redirecionar o usuário para o site da Huia
 
 ### Instalação
 

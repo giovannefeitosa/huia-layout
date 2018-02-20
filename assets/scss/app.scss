@@ -63,11 +63,11 @@ body {
 #form-error {
   font-family: 'HelveticaNeue Light', 'HelveticaNeue Medium', sans-serif;
   margin-bottom: 1rem;
-  color: #911;
+  color: #fff;
   font-size: 14px;
   text-align: center;
   transition: opacity .5s ease-out;
-  background: #fdd;
+  background: rgba(255,30,30,.5);
   padding: 5px;
   border: 1px solid #c99;
   border-radius: 5px;
@@ -129,11 +129,23 @@ body {
   font-size: 14px;
   text-align: center;
   border-radius: 5px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: background .3s ease-out;
 
   &.btn-primary {
     border: 1px solid darken(#9c83be, 10%);
     background: #9c83be;
     color: #fff;
+
+    &:hover, &:focus {
+      background: darken(#9c83be, 10%);
+    }
+
+    &:active {
+      background: darken(#9c83be, 20%);
+    }
   }
 }
 

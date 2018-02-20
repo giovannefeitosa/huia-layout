@@ -101,11 +101,11 @@ body {
 #form-error {
   font-family: 'HelveticaNeue Light', 'HelveticaNeue Medium', sans-serif;
   margin-bottom: 1rem;
-  color: #911;
+  color: #fff;
   font-size: 14px;
   text-align: center;
   transition: opacity .5s ease-out;
-  background: #fdd;
+  background: rgba(255, 30, 30, 0.5);
   padding: 5px;
   border: 1px solid #c99;
   border-radius: 5px;
@@ -154,11 +154,19 @@ body {
   line-height: 2rem;
   font-size: 14px;
   text-align: center;
-  border-radius: 5px; }
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: background .3s ease-out; }
   .btn.btn-primary {
     border: 1px solid #8162ac;
     background: #9c83be;
     color: #fff; }
+    .btn.btn-primary:hover, .btn.btn-primary:focus {
+      background: #8162ac; }
+    .btn.btn-primary:active {
+      background: #684b90; }
 
 #footer {
   text-align: center; }
