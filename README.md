@@ -14,3 +14,9 @@ Este projeto foi criado com o único propósito de ser o meu teste de seleção 
 ### Instalação
 
 O projeto não precisa ser instalado, você pode abrir o `index.html` no navegador e visualizar.
+
+### Preview
+
+O layout foi baseado nesta imagem de referência
+
+![PSD layout MAX Doctor](./assets/psd/maxidoctor_mobile.jpg)
