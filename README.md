@@ -2,6 +2,10 @@
 
 Layout responsivo de um formulário para "MAX Doctor", uma plataforma de compra de anestésicos.
 
+<p align="center">
+  <img src="./assets/psd/maxidoctor_mobile.jpg" alt="PSD layout MAX Doctor" width="250">
+</p>
+
 ## Visão Geral
 
 Este projeto foi criado com o único propósito de ser o meu teste de seleção e não tem intenção nenhuma de ir para produção.
@@ -14,9 +18,3 @@ Este projeto foi criado com o único propósito de ser o meu teste de seleção 
 ### Instalação
 
 O projeto não precisa ser instalado, você pode abrir o `index.html` no navegador e visualizar.
-
-### Preview
-
-O layout foi baseado nesta imagem de referência
-
-![PSD layout MAX Doctor](./assets/psd/maxidoctor_mobile.jpg)
