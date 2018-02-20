@@ -2,12 +2,66 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MAX Doctor</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
   <meta name="description" content="MAX Doctor - A plataforma de compra direta do seu anestésico tópico">
   <meta name="author" content="Giovanne Afonso">
+  <title>MAX Doctor</title>
+  <link rel="stylesheet" href="static/fonts/fonts.css">
   <link rel="stylesheet" href="static/css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div id="bg-clock"></div>
+  <div id="app">
+    <header>
+      <div id="logo"><img src="static/img/logo.png" alt="Max Doctor Logo"></div>
+      <h1 id="main-title">A PLATAFORMA DE COMPRA DIRETA DO SEU ANESTÉSICO TÓPICO</h1>
+    </header>
+
+    <section id="form">
+      <div id="form-error">Você precisa preencher todos os campos</div>
+      <div class="inline-field">
+        <label class="inline-field-label">CRM</label>
+        <input type="text" class="inline-field-input" value="asdasd">
+      </div>
+      <div class="inline-field">
+        <label class="inline-field-label">UF</label>
+        <input type="text" class="inline-field-input" readonly>
+      </div>
+      <div id="form-footer">
+        <div class="btn btn-primary">CONTINUE</div>
+        <p>CANAL DE COMPRA EXCLUSIVO<br>PARA CLASSE MÉDICA</p>
+      </div>
+    </section>
+
+    <footer id="footer-links">
+      <nav>
+        <a href="#" class="footer-icon-link">
+          <span class="icon cart"></span>
+          <span class="label">Facilidade de compra</span>
+        </a>
+        <a href="#" class="footer-icon-link">
+          <span class="icon amount"></span>
+          <span class="label">Quantidade não limitada</span>
+        </a>
+        <br>
+        <a href="#" class="footer-icon-link">
+          <span class="icon shipping"></span>
+          <span class="label">Frete grátis</span>
+        </a>
+        <a href="#" class="footer-icon-link">
+          <span class="icon fast"></span>
+          <span class="label">Agilidade</span>
+        </a>
+        <a href="#" class="footer-icon-link">
+          <span class="icon comfort"></span>
+          <span class="label">Comodidade</span>
+        </a>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
   <script src="static/js/app.js"></script>
 </body>
 </html>
