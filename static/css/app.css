@@ -63,7 +63,7 @@ body {
 
 #bg-clock {
   position: absolute;
-  opacity: .1;
+  opacity: .06;
   z-index: -1;
   left: -125px;
   top: -110px;
@@ -72,15 +72,18 @@ body {
   background: url("../img/bg-clock.png") center center no-repeat;
   background-size: contain; }
 
+#app-wrapper {
+  background: url("../img/bg-purple.png") right top no-repeat; }
+
 #app {
   display: block;
   margin: auto;
   max-width: 320px;
-  padding: 1rem; }
+  padding: 3rem 1rem; }
 
 #logo {
   display: block;
-  margin: 2rem auto 1.5rem auto;
+  margin: 0 auto 1.5rem auto;
   text-align: center; }
   #logo > img {
     width: 170px; }
@@ -95,7 +98,7 @@ body {
   color: #7e479b; }
 
 #form {
-  padding: .5rem 0 1.5rem 0; }
+  padding: .5rem 0; }
 
 #form-error {
   font-family: 'HelveticaNeue Light', 'HelveticaNeue Medium', sans-serif;
@@ -156,17 +159,20 @@ body {
     background: #9c83be;
     color: #fff; }
 
-#footer-links {
+#footer {
   text-align: center; }
 
-.footer-icon-link {
+.footer-row.first .footer-icon {
+  margin: 0 1rem; }
+
+.footer-icon {
   display: inline-block;
   width: 93px;
   text-transform: uppercase;
   font-size: 12px;
   text-decoration: none;
-  color: #532f67; }
-  .footer-icon-link .icon {
+  color: #6b6a6b; }
+  .footer-icon .icon {
     display: block;
     margin: auto;
     margin-bottom: .5rem;
@@ -175,15 +181,15 @@ body {
     background-position: center bottom;
     background-size: 48px auto;
     background-repeat: no-repeat; }
-    .footer-icon-link .icon.cart {
+    .footer-icon .icon.cart {
       background-image: url("../img/icons/cart.png"); }
-    .footer-icon-link .icon.amount {
+    .footer-icon .icon.amount {
       background-image: url("../img/icons/amount.png"); }
-    .footer-icon-link .icon.shipping {
+    .footer-icon .icon.shipping {
       background-image: url("../img/icons/shipping.png"); }
-    .footer-icon-link .icon.fast {
+    .footer-icon .icon.fast {
       background-image: url("../img/icons/fast.png"); }
-    .footer-icon-link .icon.comfort {
+    .footer-icon .icon.comfort {
       background-image: url("../img/icons/comfort.png"); }
-  .footer-icon-link .label {
+  .footer-icon .label {
     font-size: 11px; }

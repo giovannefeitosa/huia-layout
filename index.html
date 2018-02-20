@@ -12,53 +12,57 @@
 </head>
 <body>
   <div id="bg-clock"></div>
-  <div id="app">
-    <header>
-      <div id="logo"><img src="static/img/logo.png" alt="Max Doctor Logo"></div>
-      <h1 id="main-title">A PLATAFORMA DE COMPRA DIRETA DO SEU ANESTÉSICO TÓPICO</h1>
-    </header>
+  <div id="app-wrapper">
+    <div id="app">
+      <header>
+        <div id="logo"><img src="static/img/logo.png" alt="Max Doctor Logo"></div>
+        <h1 id="main-title">A PLATAFORMA DE COMPRA DIRETA DO SEU ANESTÉSICO TÓPICO</h1>
+      </header>
 
-    <section id="form">
-      <div id="form-error">Você precisa preencher todos os campos</div>
-      <div class="inline-field">
-        <label class="inline-field-label">CRM</label>
-        <input type="text" class="inline-field-input" value="asdasd">
-      </div>
-      <div class="inline-field">
-        <label class="inline-field-label">UF</label>
-        <input type="text" class="inline-field-input" readonly>
-      </div>
-      <div id="form-footer">
-        <div class="btn btn-primary">CONTINUE</div>
-        <p>CANAL DE COMPRA EXCLUSIVO<br>PARA CLASSE MÉDICA</p>
-      </div>
-    </section>
+      <section id="form">
+        <div id="form-error">Você precisa preencher todos os campos</div>
+        <div class="inline-field">
+          <label class="inline-field-label">CRM</label>
+          <input type="text" class="inline-field-input" value="asdasd">
+        </div>
+        <div class="inline-field">
+          <label class="inline-field-label">UF</label>
+          <input type="text" class="inline-field-input" readonly>
+        </div>
+        <div id="form-footer">
+          <div class="btn btn-primary">CONTINUE</div>
+          <p>CANAL DE COMPRA EXCLUSIVO<br>PARA CLASSE MÉDICA</p>
+        </div>
+      </section>
 
-    <footer id="footer-links">
-      <nav>
-        <a href="#" class="footer-icon-link">
-          <span class="icon cart"></span>
-          <span class="label">Facilidade de compra</span>
-        </a>
-        <a href="#" class="footer-icon-link">
-          <span class="icon amount"></span>
-          <span class="label">Quantidade não limitada</span>
-        </a>
-        <br>
-        <a href="#" class="footer-icon-link">
-          <span class="icon shipping"></span>
-          <span class="label">Frete grátis</span>
-        </a>
-        <a href="#" class="footer-icon-link">
-          <span class="icon fast"></span>
-          <span class="label">Agilidade</span>
-        </a>
-        <a href="#" class="footer-icon-link">
-          <span class="icon comfort"></span>
-          <span class="label">Comodidade</span>
-        </a>
-      </nav>
-    </footer>
+      <footer id="footer">
+        <div class="footer-row first">
+          <div class="footer-icon">
+            <div class="icon cart"></div>
+            <div class="label">Facilidade de compra</div>
+          </div>
+          <div class="footer-icon">
+            <div class="icon amount"></div>
+            <div class="label">Quantidade não limitada</div>
+          </div>
+        </div>
+        
+        <div class="footer-row second">
+          <div class="footer-icon">
+            <div class="icon shipping"></div>
+            <div class="label">Frete grátis</div>
+          </div>
+          <div class="footer-icon">
+            <div class="icon fast"></div>
+            <div class="label">Agilidade</div>
+          </div>
+          <div class="footer-icon">
+            <div class="icon comfort"></div>
+            <div class="label">Comodidade</div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
 
   <!-- Scripts -->
