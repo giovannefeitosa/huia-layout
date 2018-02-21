@@ -119,12 +119,12 @@ UFPicker.prototype.close = function () {
  *
  * This function must be called once to bind the change event.
  *
- * @param {(string|object)} inpValue       Selector or jQuery's object
- * @param {(string|object)} inpPlaceholder Selector or jQuery's object
+ * @param {(string|jQuery)} inpValue       Selector or jQuery object
+ * @param {(string|jQuery)} inpPlaceholder Selector or jQuery object
  *
  * @return {undefined}
  */
-UFPicker.prototype.bindValue = function (inpValue, inpPlaceholder) {
+UFPicker.prototype.autofill = function (inpValue, inpPlaceholder) {
   let elemValue = $(inpValue)
   let elemPlaceholder = $(inpPlaceholder)
   let elemUFs = this.elemModal.find('[data-uf]')
@@ -143,14 +143,24 @@ UFPicker.prototype.bindValue = function (inpValue, inpPlaceholder) {
 }
 
 /**
- * TODO
+ * Show and hide errors inside a div (selector).
+ *
+ * @class
+ *
+ * @param {(string|jQuery)} selector Selector of the element that will show the errors
+ *
+ * @return {undefined}
  */
 function ErrorManager (selector) {
   this.element = $(selector)
 }
 
 /**
- * TODO
+ * Show error.
+ *
+ * @param {string} message
+ *
+ * @return {undefined}
  */
 ErrorManager.prototype.show = function (message) {
   this.element.html(message).stop().animate({ opacity: 1 }, 70)
@@ -159,42 +169,69 @@ ErrorManager.prototype.show = function (message) {
 }
 
 /**
- * TODO
+ * Hide error.
+ *
+ * @return {undefined}
  */
 ErrorManager.prototype.hide = function () {
   this.element.stop().animate({ opacity: 0 }, 70)
 }
 
 /**
- * TODO
+ * Functions related to the main form.
+ *
+ * @class
+ *
+ * @param {(string|jQuery)} elemFormContent Selector of the element that wraps the fields
+ * @param {(string|jQuery)} elemFormButton  Selector of the submit button
+ * @param {(string|jQuery)} elemFormSuccess Selector of the overlay div that is shown when the form is submitted
+ *
+ * @return {undefined}
  */
-function DelaySuccessHtml (html) {
-  return new Promise(resolve => {
-    let elemSuccess = $('#form-success')
+function FormManager (elemFormContent, elemFormButton, elemFormSuccess) {
+  this.elemFormContent = $(elemFormContent)
+  this.elemFormButton = $(elemFormButton)
+  this.elemFormSuccess = $(elemFormSuccess)
+}
 
+/**
+ * Show the success container and update it's message.
+ *
+ * If the message is falsy, the container will show with it's current content. Also
+ * if the delay is provided, the container will be shown afters that delay in ms.
+ *
+ * @param {string} innerHtml If this param is provided, it will update the success container's html with this
+ * @param {number} delay     Delay to execute this function
+ */
+FormManager.prototype.showSuccessMessage = function (innerHtml, delay) {
+  return new Promise(resolve => {
     setTimeout(() => {
-      elemSuccess.stop().fadeOut('fast', () => {
-        elemSuccess.html(html).fadeIn('fast', () => {
+      this.elemFormSuccess.attr('disabled', true)
+
+      this.elemFormSuccess.stop().fadeOut('fast', () => {
+        this.elemFormSuccess.html(html).stop().fadeIn('fast', () => {
           resolve()
         })
       })
-    }, 1000)
+    }, delay)
   })
 }
 
 /**
- * TODO
+ * Show success container and redirect to Huia's website.
+ *
+ * Called when the user completes the form and it's validated.
  */
-function HireMe () {
-  let elemSuccess = $('#form-success')
+FormManager.prototype.hireMe = function () {
+  this.elemFormContent.animate({ opacity: 0 }, 'fast', async () => {
+    let elemSuccessHtml = this.elemFormSuccess.html()
 
-  $('#btn-submit').attr('disabled', true)
+    this.showSuccessMessage()
+    await this.showSuccessMessage('Mas antes...', 3000)
+    await this.showSuccessMessage('Obrigado <span class="color-primary">HUIA</span>', 1000)
+    await this.showSuccessMessage(elemSuccessHtml, 2000)
 
-  $('#form-content').animate({ opacity: 0 }, 'fast', async () => {
-    let elemSuccessHtml = elemSuccess.fadeIn().html()
-    await DelaySuccessHtml('Mas antes...')
-    await DelaySuccessHtml('Obrigado <span class="color-primary">HUIA</span>')
-    await DelaySuccessHtml(elemSuccessHtml)
+    // Show default Huia's background for smooth transition
     setTimeout(() => {
       $('#overlay-preload').fadeIn(1000, () => {
         window.location.href = 'http://www.huia.com.br/?hire=giovanneafonso@gmail.com'
@@ -204,37 +241,39 @@ function HireMe () {
 }
 
 /**
- * TODO
+ * App's "constructor"
  */
 $(document).ready(function () {
+  let formMgr = new FormManager()
+  let errMgr = new ErrorManager('#form-error')
+  let ufPicker = new UFPicker('.ufpicker')
+
   let elemCRM = $('#inp-crm')
   let elemUF = $('#inp-uf')
 
   elemCRM.mask('000.000-0')
-
-  let ufPicker = new UFPicker('.ufpicker')
-  ufPicker.bindValue(elemUF, '#inp-uf-placeholder')
-
-  let err = new ErrorManager('#form-error')
+  ufPicker.autofill(elemUF, '#inp-uf-placeholder')
 
   /**
-   * TODO
+   * Handle submit button's click.
+   *
+   * Execute some validations and then show the success container from {@link FormManager}.
    */
   $('#btn-submit').click(function () {
     if (!elemCRM.val()) {
-      err.show('Preencha o campo CRM')
+      errMgr.show('Preencha o campo CRM')
       elemCRM.focus()
       return
     }
 
     if (elemCRM.val().length !== 9) {
-      err.show('O CRM preenchido é inválido')
+      errMgr.show('O CRM preenchido é inválido')
       elemCRM.focus()
       return
     }
 
     if (!elemUF.val()) {
-      err.show('Preencha o campo UF')
+      errMgr.show('Preencha o campo UF')
 
       // Should open the modal!?
       setTimeout(() => ufPicker.open(), 500)
@@ -243,6 +282,6 @@ $(document).ready(function () {
     }
 
     // Eureka! Can we can work together now?
-    HireMe()
+    formMgr.hireMe()
   })
 })

@@ -4,7 +4,7 @@
   "description": "My first code for Huia Tech Studio",
   "main": "index.html",
   "scripts": {
-    "test": "standard"
+    "test": "standard static/js/app.js"
   },
   "repository": {
     "type": "git",
