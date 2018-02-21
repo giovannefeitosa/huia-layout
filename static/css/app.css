@@ -59,6 +59,22 @@ body {
   body.prevent-scroll {
     overflow: hidden; }
 
+p {
+  margin-bottom: 1rem; }
+
+.color-primary {
+  color: #7e479b; }
+
+#overlay-preload {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #06050f;
+  z-index: 2018; }
+
 #bg-clock {
   position: absolute;
   opacity: .06;
@@ -96,7 +112,8 @@ body {
   color: #7e479b; }
 
 #form {
-  padding: .5rem 0; }
+  padding: .5rem 0;
+  position: relative; }
 
 #form-error {
   font-family: 'HelveticaNeue Light', 'HelveticaNeue Medium', sans-serif;
@@ -110,6 +127,15 @@ body {
   border: 1px solid #c99;
   border-radius: 5px;
   opacity: 0; }
+
+#form-success {
+  display: none;
+  position: absolute;
+  padding-top: 70px;
+  width: 100%;
+  color: #6b6a6b;
+  text-align: center;
+  z-index: 10; }
 
 .inline-field {
   position: relative;
@@ -144,7 +170,7 @@ body {
   padding-top: 1.5rem;
   text-align: center; }
   #form-footer p {
-    padding: 1rem 0;
+    padding-top: 1rem;
     font-size: 14px;
     line-height: 1.5em;
     color: #7e479b; }
@@ -159,6 +185,9 @@ body {
   outline: none;
   cursor: pointer;
   transition: background .3s ease-out; }
+  .btn:disabled, .btn:disabled:hover, .btn:disabled:focus {
+    opacity: .4;
+    cursor: default; }
   .btn.btn-primary {
     border: 1px solid #8162ac;
     background: #9c83be;

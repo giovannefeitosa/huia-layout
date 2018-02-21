@@ -11,6 +11,22 @@ body {
   }
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
+.color-primary {
+  color: $primaryColor;
+}
+
+#overlay-preload {
+  display: none;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: #06050f;
+  z-index: 2018;
+}
+
 #bg-clock {
   position: absolute;
   opacity: .06;
@@ -58,6 +74,7 @@ body {
 
 #form {
   padding: .5rem 0;
+  position: relative;
 }
 
 #form-error {
@@ -72,6 +89,16 @@ body {
   border: 1px solid #c99;
   border-radius: 5px;
   opacity: 0;
+}
+
+#form-success {
+  display: none;
+  position: absolute;
+  padding-top: 70px;
+  width: 100%;
+  color: #6b6a6b;
+  text-align: center;
+  z-index: 10;
 }
 
 .inline-field {
@@ -117,7 +144,7 @@ body {
   text-align: center;
 
   p {
-    padding: 1rem 0;
+    padding-top: 1rem;
     font-size: 14px;
     line-height: 1.5em;
     color: $primaryColor;
@@ -133,6 +160,13 @@ body {
   outline: none;
   cursor: pointer;
   transition: background .3s ease-out;
+
+  &:disabled {
+    &, &:hover, &:focus {
+      opacity: .4;
+      cursor: default;
+    }
+  }
 
   &.btn-primary {
     border: 1px solid darken(#9c83be, 10%);

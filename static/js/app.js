@@ -128,6 +128,43 @@ ErrorManager.prototype.hide = function() {
 
 
 
+function DelaySuccessHtml(html) {
+  return new Promise(resolve => {
+    let elemSuccess = $('#form-success');
+
+    setTimeout(() => {
+      elemSuccess.stop().fadeOut('fast', () => {
+        elemSuccess.html(html).fadeIn('fast', () => {
+          resolve();
+        });
+      });
+    }, 1000);
+  });
+}
+
+
+function HireMe() {
+  let elemSuccess = $('#form-success');
+
+  $('#btn-submit').attr('disabled', true);
+
+  $('#form-content').animate({ opacity: 0 }, 'fast', async () => {
+    let elemSuccessHtml = elemSuccess.fadeIn().html();
+    await DelaySuccessHtml('Mas antes...');
+    await DelaySuccessHtml('Obrigado <span class="color-primary">HUIA</span>');
+    await DelaySuccessHtml(elemSuccessHtml);
+    setTimeout(() => {
+      $('#overlay-preload').fadeIn(1000, () => {
+        window.location.href = 'http://www.huia.com.br/?hire=giovanneafonso@gmail.com';
+      });
+    }, 3000);
+  });
+}
+
+
+
+
+
 $(document).ready(function() {
 
   let elemCRM = $('#inp-crm');
@@ -141,7 +178,7 @@ $(document).ready(function() {
   let err = new ErrorManager('#form-error');
 
   $('#btn-submit').click(function() {
-    
+
     if(!elemCRM.val()) {
       err.show('Preencha o campo CRM');
       elemCRM.focus();
@@ -162,6 +199,9 @@ $(document).ready(function() {
       
       return;
     }
+
+    // Eureka! Can we can work together now?
+    HireMe();
 
   });
 
