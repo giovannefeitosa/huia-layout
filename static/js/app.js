@@ -209,7 +209,7 @@ FormManager.prototype.showSuccessMessage = function (innerHtml, delay) {
       this.elemFormSuccess.attr('disabled', true)
 
       this.elemFormSuccess.stop().fadeOut('fast', () => {
-        this.elemFormSuccess.html(html).stop().fadeIn('fast', () => {
+        this.elemFormSuccess.html(innerHtml).stop().fadeIn('fast', () => {
           resolve()
         })
       })
@@ -244,7 +244,7 @@ FormManager.prototype.hireMe = function () {
  * App's "constructor"
  */
 $(document).ready(function () {
-  let formMgr = new FormManager()
+  let formMgr = new FormManager('#form-content', '#btn-submit', '#form-success')
   let errMgr = new ErrorManager('#form-error')
   let ufPicker = new UFPicker('.ufpicker')
 
