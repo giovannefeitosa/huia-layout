@@ -4,7 +4,7 @@
   "description": "My first code for Huia Tech Studio",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://gitlab.com/shakegioh/huia-layout/issues"
   },
-  "homepage": "https://gitlab.com/shakegioh/huia-layout#README"
+  "homepage": "https://gitlab.com/shakegioh/huia-layout#README",
+  "devDependencies": {
+    "standard": "^11.0.0"
+  }
 }
