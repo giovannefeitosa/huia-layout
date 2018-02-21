@@ -1,3 +1,12 @@
+/**
+ * Handle UF selection.
+ *
+ * This class opens a modal showing all brazillian UFs.
+ *
+ * @class
+ *
+ * @param {(string|object)} UFPicker
+ */
 function UFPicker (triggerElement) {
   this.elemBody = $('body')
   this.elemTrigger = $(triggerElement)
@@ -7,6 +16,16 @@ function UFPicker (triggerElement) {
   this.elemTrigger.click(() => this.open())
 }
 
+/**
+ * Array of UFs.
+ *
+ * @typedef UFArray
+ * @type {array}
+ * @property {string} 0 - UF's HTML value
+ * @property {string} 1 - UF's name
+ *
+ * @return {UFArray}
+ */
 UFPicker.prototype.getUFs = function () {
   return [
     ['AC', 'Acre'],
@@ -39,6 +58,11 @@ UFPicker.prototype.getUFs = function () {
   ]
 }
 
+/**
+ * Generate HTML of list of UFs.
+ *
+ * @return {string}
+ */
 UFPicker.prototype.toHtml = function () {
   let ufs = this.getUFs()
   let html = '<ul class="uf-list">'
@@ -53,6 +77,14 @@ UFPicker.prototype.toHtml = function () {
   return html
 }
 
+/**
+ * Open the selection modal.
+ *
+ * When this modal is open, the user is forced to pick a UF.
+ * This is an intentional behavior, because it's a mandatory field.
+ *
+ * @return {undefined}
+ */
 UFPicker.prototype.open = function () {
   this.elemBody.addClass('prevent-scroll')
 
@@ -66,6 +98,11 @@ UFPicker.prototype.open = function () {
   }, 'fast')
 }
 
+/**
+ * Close the selection modal.
+ *
+ * @return {undefined}
+ */
 UFPicker.prototype.close = function () {
   this.elemBody.removeClass('prevent-scroll')
 
@@ -77,6 +114,16 @@ UFPicker.prototype.close = function () {
   })
 }
 
+/**
+ * Auto-fill the form fields whenever user picks an UF.
+ *
+ * This function must be called once to bind the change event.
+ *
+ * @param {(string|object)} inpValue       Selector or jQuery's object
+ * @param {(string|object)} inpPlaceholder Selector or jQuery's object
+ *
+ * @return {undefined}
+ */
 UFPicker.prototype.bindValue = function (inpValue, inpPlaceholder) {
   let elemValue = $(inpValue)
   let elemPlaceholder = $(inpPlaceholder)
@@ -95,20 +142,32 @@ UFPicker.prototype.bindValue = function (inpValue, inpPlaceholder) {
   })
 }
 
+/**
+ * TODO
+ */
 function ErrorManager (selector) {
   this.element = $(selector)
 }
 
+/**
+ * TODO
+ */
 ErrorManager.prototype.show = function (message) {
   this.element.html(message).stop().animate({ opacity: 1 }, 70)
 
   setTimeout(() => this.hide(), 3000)
 }
 
+/**
+ * TODO
+ */
 ErrorManager.prototype.hide = function () {
   this.element.stop().animate({ opacity: 0 }, 70)
 }
 
+/**
+ * TODO
+ */
 function DelaySuccessHtml (html) {
   return new Promise(resolve => {
     let elemSuccess = $('#form-success')
@@ -123,6 +182,9 @@ function DelaySuccessHtml (html) {
   })
 }
 
+/**
+ * TODO
+ */
 function HireMe () {
   let elemSuccess = $('#form-success')
 
@@ -141,6 +203,9 @@ function HireMe () {
   })
 }
 
+/**
+ * TODO
+ */
 $(document).ready(function () {
   let elemCRM = $('#inp-crm')
   let elemUF = $('#inp-uf')
@@ -152,6 +217,9 @@ $(document).ready(function () {
 
   let err = new ErrorManager('#form-error')
 
+  /**
+   * TODO
+   */
   $('#btn-submit').click(function () {
     if (!elemCRM.val()) {
       err.show('Preencha o campo CRM')
